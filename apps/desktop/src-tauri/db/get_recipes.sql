@@ -3,6 +3,15 @@
 -- $3 = page
 -- $4 = limit
 
+WITH RECURSIVE split(value, rest) AS (
+    SELECT '', $2 || ','
+    UNION ALL
+    SELECT
+        trim(substr(rest, 1, instr(rest, ',') - 1)),
+        substr(rest, instr(rest, ',') + 1)
+    FROM split
+    WHERE rest <> ''
+)
 SELECT
     r.id,
     r.title,
@@ -19,10 +28,14 @@ LEFT JOIN
 WHERE ($1 IS NULL OR r.title LIKE '%' || $1 || '%')
     AND (
         $2 IS NULL OR $2 = '' OR
-        EXISTS (
-            SELECT 1 FROM recipe_tags rt
+        (
+            SELECT COUNT(DISTINCT ut.name)
+            FROM recipe_tags rt
             JOIN user_tags ut ON ut.id = rt.tag_id
-            WHERE rt.recipe_id = r.id AND $2 LIKE '%' || ut.name || '%'
+            WHERE rt.recipe_id = r.id
+                AND ut.name IN (SELECT value FROM split WHERE value <> '')
+        ) = (
+            SELECT COUNT(DISTINCT value) FROM split where value <> ''
         )
     )
 GROUP BY

@@ -28,7 +28,7 @@ SET search_path = public
 AS $$
 BEGIN
     RETURN QUERY
-    SELECT 
+    SELECT
         r.id,
         r.title,
         r.yield,
@@ -37,32 +37,35 @@ BEGIN
         r.source,
         r.color,
         (SELECT jsonb_agg(jsonb_build_object('id', i.id, 'name', i.name, 'amount', i.amount, 'unit', i.unit))
-         FROM ingredients i 
+         FROM ingredients i
          WHERE i.recipe_id = r.id) AS ingredients,
         (SELECT jsonb_agg(jsonb_build_object('id', d.id, 'content', d.content))
-         FROM directions d 
+         FROM directions d
          WHERE d.recipe_id = r.id) AS directions,
         MAX(ru.last_viewed) AS last_viewed,
         (SELECT COALESCE(jsonb_agg(ut.name), '[]'::jsonb)
-         FROM recipe_tags rt 
-         JOIN user_tags ut ON ut.id = rt.tag_id 
+         FROM recipe_tags rt
+         JOIN user_tags ut ON ut.id = rt.tag_id
          WHERE rt.recipe_id = r.id AND ut.user_id = p_user_id) AS tags
-    FROM 
+    FROM
         recipes r
-    LEFT JOIN 
+    LEFT JOIN
         recipe_usage ru ON r.id = ru.recipe_id AND ru.user_id = p_user_id
-    WHERE 
+    WHERE
         r.user_id = p_user_id
         AND (p_q IS NULL OR r.title ILIKE '%' || p_q || '%')
         AND (
-            p_tags IS NULL OR
-            EXISTS (
-                SELECT 1 FROM recipe_tags rt
+            p_tags IS NULL OR array_length(p_tags, 1) IS NULL OR
+            (
+                SELECT COUNT(DISTINCT ut.name)
+                FROM recipe_tags rt
                 JOIN user_tags ut ON ut.id = rt.tag_id
                 WHERE rt.recipe_id = r.id AND ut.user_id = p_user_id AND ut.name = ANY(p_tags)
+            ) = (
+                SELECT COUNT(DISTINCT t) FROM unnest(p_tags) AS t
             )
         )
-    GROUP BY 
+    GROUP BY
         r.id, r.title, r.yield, r.minutes, r.img_url, r.source, r.color
     ORDER BY
         MAX(ru.last_viewed) DESC NULLS LAST, r.title ASC

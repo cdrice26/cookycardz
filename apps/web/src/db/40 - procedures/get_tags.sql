@@ -13,6 +13,7 @@ BEGIN
     RETURN QUERY
     SELECT ut.id, ut.name
     FROM user_tags ut
-    WHERE ut.user_id = current_user_id;
+    WHERE ut.user_id = current_user_id
+    ORDER BY ut.name;
 END;
 $$;
