@@ -1,0 +1,14 @@
+PRAGMA foreign_keys = OFF;
+DELETE FROM directions;
+DELETE FROM ingredients;
+DELETE FROM recipe_tags;
+DELETE FROM user_tags;
+DELETE FROM scheduled_recipes;
+DELETE FROM recipe_usage;
+DELETE FROM cloud_ids;
+DELETE FROM key_value;
+DELETE FROM last_synced_per_account;
+DELETE FROM tag_cloud_ids;
+DELETE FROM schedule_cloud_ids;
+DELETE FROM recipes;
+PRAGMA foreign_keys = ON;
