@@ -1,6 +1,6 @@
 # CookyCardz (formerly ChefDeck)
 
-CookyCardz is a recipe manager tool. It allows you to manage your recipes, organize them with tags, schedule them, and generate grocery lists. It is both a cloud-based web app and a (WIP) desktop application with optional cloud syncing.
+CookyCardz is a recipe manager tool. It allows you to manage your recipes, organize them with tags, schedule them, and generate grocery lists. It is both a cloud-based web app and a desktop application with optional cloud syncing.
 
 ## Quick summary
 
@@ -82,6 +82,10 @@ From the root, run:
 npm run build
 ```
 this builds both web and desktop apps.
+
+## Note about cloud syncing on desktop
+
+Generally, a user will only sign in with one account, and cloud syncing should work as expected for that. If the user signs out and then signs in with another account, however, all local recipes will also be uploaded to that account. Multiple accounts is more so designed for switching accounts at the moment rather than temporarily viewing someone else's recipes. If the latter is desired, the web interface is a better fit for that scenario.
 
 ## Licensing
 - CookyCardz is licensed under the [MIT License](LICENSE).
