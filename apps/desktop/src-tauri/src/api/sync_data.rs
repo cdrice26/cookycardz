@@ -33,22 +33,24 @@ use crate::{
 };
 use chrono::NaiveDateTime;
 use sqlx::{query_file_as, Pool, Sqlite, Transaction};
-use tauri::{AppHandle, Manager};
+use tauri::{AppHandle, Manager, State};
 
 use super::auth::check_auth::get_username;
 
 async fn get_local_id_from_cloud(
     db: &Pool<Sqlite>,
     recipe_id: &str,
+    username: &str,
 ) -> Result<Option<i64>, Box<dyn std::error::Error>> {
     let result: Option<i64> =
         run_tx_with_error!(db, async |tx: &mut Transaction<'_, Sqlite>| -> Result<
             Option<i64>,
             Box<dyn std::error::Error>,
         > {
-            let local_row_res = query_file_as!(IntegerValue, "db/get_local_id.sql", recipe_id)
-                .fetch_optional(&mut **tx)
-                .await;
+            let local_row_res =
+                query_file_as!(IntegerValue, "db/get_local_id.sql", recipe_id, username)
+                    .fetch_optional(&mut **tx)
+                    .await;
 
             match local_row_res {
                 Ok(opt_row) => Ok(opt_row.and_then(|r| r.value)),
@@ -61,9 +63,11 @@ async fn get_local_id_from_cloud(
 async fn update_local_recipe_from_downloaded(
     recipe: DownloadedRecipe,
     app: &AppHandle,
-    state: &AppState,
+    state: &State<'_, AppState>,
 ) -> Result<Option<i64>, Box<dyn std::error::Error>> {
-    let local_id_opt: Option<i64> = get_local_id_from_cloud(&state.db, &recipe.id.as_str()).await?;
+    let username = get_username(state).await?;
+    let local_id_opt: Option<i64> =
+        get_local_id_from_cloud(&state.db, &recipe.id.as_str(), &username).await?;
 
     let Some(local_id) = local_id_opt else {
         return Ok(None);
@@ -290,7 +294,7 @@ async fn sync_schedules(app: AppHandle) -> Result<(), String> {
     // Group ALL downloaded schedules by recipe_id first
     let mut server_by_recipe: HashMap<i64, Vec<&CloudScheduleWithIds>> = HashMap::new();
     for schedule in downloaded_schedules.iter() {
-        if let Some(local_recipe_id) = get_local_id_from_cloud(db, &schedule.recipe_id)
+        if let Some(local_recipe_id) = get_local_id_from_cloud(db, &schedule.recipe_id, &username)
             .await
             .map_err(|e| e.to_string())?
         {
