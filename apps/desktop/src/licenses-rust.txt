@@ -2,7 +2,7 @@
 This page lists the licenses of the projects used in CookyCardz Desktop.
 
 ## Overview of Licenses
-- [Apache License 2.0](#Apache-2.0) (435)
+- [Apache License 2.0](#Apache-2.0) (436)
 - [MIT License](#MIT) (163)
 - [Unicode License v3](#Unicode-3.0) (19)
 - [BSD 3-Clause &quot;New&quot; or &quot;Revised&quot; License](#BSD-3-Clause) (10)
