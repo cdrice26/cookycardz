@@ -47,6 +47,7 @@ export default function MorePage() {
     <div>
       <ResponsiveForm onSubmit={handleBackupAction}>
         <h1 className="text-2xl font-bold mb-4">Import/Export Database</h1>
+        Archives include all your recipes, schedules, and tags, as well as their cloud sync state. Loading an archive will replace all your existing data, sign you out of your current cloud account, and restart the app.
         <Button type="submit" name="action" value="export">
           Export All Recipes to Archive
         </Button>

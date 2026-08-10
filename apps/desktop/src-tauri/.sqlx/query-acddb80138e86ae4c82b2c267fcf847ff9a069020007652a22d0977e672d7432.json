@@ -1,6 +1,6 @@
 {
   "db_name": "SQLite",
-  "query": "SELECT recipe_id AS value FROM cloud_ids\nWHERE cloud_recipe_id = $1;\n",
+  "query": "SELECT recipe_id AS value FROM cloud_ids\nWHERE cloud_recipe_id = $1 AND username = $2;\n",
   "describe": {
     "columns": [
       {
@@ -10,11 +10,11 @@
       }
     ],
     "parameters": {
-      "Right": 1
+      "Right": 2
     },
     "nullable": [
       true
     ]
   },
-  "hash": "51d8924b3ba14c37e756769c01b30eb46440fb2e77a36d80eb088c3aeedc74a5"
+  "hash": "acddb80138e86ae4c82b2c267fcf847ff9a069020007652a22d0977e672d7432"
 }

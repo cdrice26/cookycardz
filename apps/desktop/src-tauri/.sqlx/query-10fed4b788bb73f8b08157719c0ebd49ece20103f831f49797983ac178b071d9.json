@@ -1,6 +1,6 @@
 {
   "db_name": "SQLite",
-  "query": "SELECT id, name FROM user_tags;\n",
+  "query": "SELECT id, name FROM user_tags ORDER BY name ASC;\n",
   "describe": {
     "columns": [
       {
@@ -18,9 +18,9 @@
       "Right": 0
     },
     "nullable": [
-      false,
+      true,
       true
     ]
   },
-  "hash": "7aaf4bbd685acb056e5425e4510386d09247db4d27ee1963535032c0c4cfc56e"
+  "hash": "10fed4b788bb73f8b08157719c0ebd49ece20103f831f49797983ac178b071d9"
 }

@@ -83,10 +83,6 @@ npm run build
 ```
 this builds both web and desktop apps.
 
-## Note about cloud syncing on desktop
-
-Generally, a user will only sign in with one account, and cloud syncing should work as expected for that. If the user signs out and then signs in with another account, however, all local recipes will also be uploaded to that account. Multiple accounts is more so designed for users changing from one account to another at the moment rather than temporarily viewing someone else's recipes. I'm now realizing there's almost no reason to do this, so a redesign of this feature may be in the works. If the latter is desired, the web interface is a better fit for that scenario.
-
 ## Licensing
 - CookyCardz is licensed under the [MIT License](LICENSE).
 - Third Party Licenses for the web app are located in [ThirdPartyNotices.txt](ThirdPartyNotices.txt) in the repo root.
