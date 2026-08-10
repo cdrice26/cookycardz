@@ -13,6 +13,7 @@
     "dialog:allow-open",
     "dialog:allow-save",
     "opener:allow-default-urls",
-    "core:webview:allow-print"
+    "core:webview:allow-print",
+    "process:allow-restart"
   ]
 }

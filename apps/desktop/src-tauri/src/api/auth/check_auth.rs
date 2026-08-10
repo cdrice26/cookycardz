@@ -16,7 +16,7 @@ pub struct CheckAuthResponse {
     pub profile: Profile,
 }
 
-async fn make_auth_request(access_token: &str) -> Result<Response, String> {
+pub async fn make_auth_request(access_token: &str) -> Result<Response, String> {
     let client = reqwest::Client::new();
     client
         .get(format!("{}/auth/checkAuth", env!("API_URL")))
@@ -26,7 +26,9 @@ async fn make_auth_request(access_token: &str) -> Result<Response, String> {
         .string_err()
 }
 
-async fn parse_response(response: Response) -> Result<GenericResponse<CheckAuthResponse>, String> {
+pub async fn parse_response(
+    response: Response,
+) -> Result<GenericResponse<CheckAuthResponse>, String> {
     let data: GenericResponse<CheckAuthResponse> = response.json().await.string_err()?;
     Ok(data)
 }

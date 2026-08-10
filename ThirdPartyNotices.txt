@@ -2978,6 +2978,7 @@ The following npm packages may be included in this product:
  - @tauri-apps/plugin-dialog@2.7.1
  - @tauri-apps/plugin-opener@2.5.4
  - @tauri-apps/plugin-os@2.3.2
+ - @tauri-apps/plugin-process@2.3.1
  - @tauri-apps/plugin-window-state@2.4.1
 
 These packages each contain the following license:
