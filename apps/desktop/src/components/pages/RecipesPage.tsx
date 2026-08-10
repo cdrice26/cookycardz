@@ -7,6 +7,7 @@ import { useMemo, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 import { request } from '../../utils/fetchUtils';
 import { convertFileSrc } from '@tauri-apps/api/core';
+import { useTauriListener } from '../../hooks/useTauriListener';
 
 export default function RecipesPage() {
   const navigate = useNavigate();
@@ -18,8 +19,12 @@ export default function RecipesPage() {
     [searchParams]
   );
 
-  const { recipes, page, setPage, hasMore, loading, error } =
+  const { recipes, page, setPage, hasMore, loading, error, mutate } =
     usePaginatedRecipes(request, query, tags);
+
+  useTauriListener('sync_success', () => mutate());
+  useTauriListener('logout', () => mutate());
+  useTauriListener('import_complete', () => mutate());
 
   const updatedRecipes = useMemo(() => {
     const newRecipes = recipes.map((recipe) => ({

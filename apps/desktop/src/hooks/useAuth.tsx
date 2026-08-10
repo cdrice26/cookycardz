@@ -6,6 +6,7 @@ import {
   ReactNode
 } from 'react';
 import { request } from '../utils/fetchUtils';
+import { useTauriListener } from './useTauriListener';
 
 interface UserResponse {
   data: {
@@ -39,6 +40,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     fetchUser();
   }, []);
+
+  useTauriListener('logout', fetchUser);
 
   return (
     <AuthContext.Provider value={{ username, fetchUser }}>

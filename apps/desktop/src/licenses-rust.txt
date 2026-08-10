@@ -10986,6 +10986,7 @@ limitations under the License.
 - [tauri-plugin-log 2.8.0]( https://github.com/tauri-apps/plugins-workspace )
 - [tauri-plugin-opener 2.5.4]( https://github.com/tauri-apps/plugins-workspace )
 - [tauri-plugin-os 2.3.2]( https://github.com/tauri-apps/plugins-workspace )
+- [tauri-plugin-process 2.3.1]( https://github.com/tauri-apps/plugins-workspace )
 - [tauri-plugin-window-state 2.4.1]( https://github.com/tauri-apps/plugins-workspace )
 - [tauri-plugin 2.6.2]( https://github.com/tauri-apps/tauri )
 - [tauri-runtime-wry 2.11.2]( https://github.com/tauri-apps/tauri )
