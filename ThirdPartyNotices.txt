@@ -2769,7 +2769,7 @@ The following npm packages may be included in this product:
  - babel-plugin-macros@3.1.0
  - client-only@0.0.1
  - convert-source-map@1.9.0
- - cookie-es@3.1.1
+ - cookie@1.1.1
  - cookycardz-desktop@0.0.0
  - cosmiconfig@7.1.0
  - csstype@3.2.3
@@ -2794,14 +2794,15 @@ The following npm packages may be included in this product:
  - picomatch@4.0.4
  - postcss@8.5.23
  - prop-types@15.8.1
- - react-dom@19.2.8
+ - react-dom@19.2.0
  - react-icons@5.5.0
  - react-is@16.13.1
  - react-select@5.10.2
- - react@19.2.8
+ - react@19.2.0
  - resolve@1.22.11
  - rolldown@1.0.3
  - scheduler@0.27.0
+ - set-cookie-parser@2.7.2
  - stylis@4.2.0
  - supports-preserve-symlinks-flag@1.0.0
  - swr@2.3.6
@@ -2852,7 +2853,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - react-router@8.3.0
+ - react-router@7.18.1
 
 This package contains the following license:
 
