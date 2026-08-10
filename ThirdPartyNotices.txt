@@ -2745,8 +2745,8 @@ The following npm packages may be included in this product:
  - @jridgewell/resolve-uri@3.1.2
  - @jridgewell/sourcemap-codec@1.5.5
  - @jridgewell/trace-mapping@0.3.31
- - @next/env@16.2.9
- - @next/swc-darwin-arm64@16.2.9
+ - @next/env@16.2.11
+ - @next/swc-darwin-arm64@16.2.11
  - @oxc-project/types@0.133.0
  - @rolldown/binding-darwin-arm64@1.0.3
  - @rolldown/pluginutils@1.0.1
@@ -2854,7 +2854,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - react-router@7.17.0
+ - react-router@7.18.1
 
 This package contains the following license:
 
@@ -2979,6 +2979,7 @@ The following npm packages may be included in this product:
  - @tauri-apps/plugin-dialog@2.7.1
  - @tauri-apps/plugin-opener@2.5.4
  - @tauri-apps/plugin-os@2.3.2
+ - @tauri-apps/plugin-process@2.3.1
  - @tauri-apps/plugin-window-state@2.4.1
 
 These packages each contain the following license:
@@ -3056,7 +3057,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - next@16.2.9
+ - next@16.2.11
 
 This package contains the following license:
 

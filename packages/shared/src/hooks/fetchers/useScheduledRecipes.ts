@@ -81,7 +81,8 @@ const useScheduledRecipes = (
   const {
     data: scheduledRecipes,
     isLoading,
-    error
+    error,
+    mutate
   } = useSWR(
     `/api/recipes/scheduled?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}`,
     fetchScheduledRecipes
@@ -136,7 +137,8 @@ const useScheduledRecipes = (
     setMonth,
     year,
     yearInput,
-    month
+    month,
+    mutate
   };
 };
 
