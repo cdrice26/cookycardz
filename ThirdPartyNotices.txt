@@ -2745,8 +2745,8 @@ The following npm packages may be included in this product:
  - @jridgewell/resolve-uri@3.1.2
  - @jridgewell/sourcemap-codec@1.5.5
  - @jridgewell/trace-mapping@0.3.31
- - @next/env@16.2.9
- - @next/swc-darwin-arm64@16.2.9
+ - @next/env@16.2.11
+ - @next/swc-darwin-arm64@16.2.11
  - @oxc-project/types@0.133.0
  - @rolldown/binding-darwin-arm64@1.0.3
  - @rolldown/pluginutils@1.0.1
@@ -2769,7 +2769,7 @@ The following npm packages may be included in this product:
  - babel-plugin-macros@3.1.0
  - client-only@0.0.1
  - convert-source-map@1.9.0
- - cookie@1.1.1
+ - cookie-es@3.1.1
  - cookycardz-desktop@0.0.0
  - cosmiconfig@7.1.0
  - csstype@3.2.3
@@ -2795,15 +2795,14 @@ The following npm packages may be included in this product:
  - postcss@8.4.31
  - postcss@8.5.15
  - prop-types@15.8.1
- - react-dom@19.2.0
+ - react-dom@19.2.8
  - react-icons@5.5.0
  - react-is@16.13.1
  - react-select@5.10.2
- - react@19.2.0
+ - react@19.2.8
  - resolve@1.22.11
  - rolldown@1.0.3
  - scheduler@0.27.0
- - set-cookie-parser@2.7.2
  - stylis@4.2.0
  - supports-preserve-symlinks-flag@1.0.0
  - swr@2.3.6
@@ -2854,7 +2853,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - react-router@7.17.0
+ - react-router@8.3.0
 
 This package contains the following license:
 
@@ -3056,7 +3055,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - next@16.2.9
+ - next@16.2.11
 
 This package contains the following license:
 
