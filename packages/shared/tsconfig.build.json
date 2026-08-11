@@ -10,7 +10,8 @@
     "isolatedModules": true,
     "jsx": "preserve",            // let Next/Vite handle JSX
     "skipLibCheck": true,
-    "incremental": false
+    "incremental": false,
+    "rootDir": "src"
   },
   "include": ["src"],
   "exclude": ["src/types", "**/*.test.ts", "**/*.spec.ts"]
