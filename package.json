@@ -23,5 +23,10 @@
     "prettier": "^3.7.3",
     "turbo": "^2.9.14",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "@swc/core@1.15.47": true,
+    "fsevents@2.3.3": true,
+    "unrs-resolver@1.12.2": true
   }
 }
