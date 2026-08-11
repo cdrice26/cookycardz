@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 import tailwindcss from '@tailwindcss/vite';
 import fs from 'fs';
@@ -24,20 +24,20 @@ export default defineConfig({
       // Ensure the desktop build resolves to the single React/react-dom copy
       // located at the workspace root. This prevents multiple React copies
       // (which cause invalid hook call errors) when running the Tauri app.
-      react: path.resolve(__dirname, '../../node_modules/react'),
-      'react-dom': path.resolve(__dirname, '../../node_modules/react-dom'),
+      react: path.resolve(import.meta.dirname, '../../node_modules/react'),
+      'react-dom': path.resolve(import.meta.dirname, '../../node_modules/react-dom'),
       // JSX runtimes
       'react/jsx-runtime': path.resolve(
-        __dirname,
+        import.meta.dirname,
         '../../node_modules/react/jsx-runtime'
       ),
       'react/jsx-dev-runtime': path.resolve(
-        __dirname,
+        import.meta.dirname,
         '../../node_modules/react/jsx-dev-runtime'
       ),
       // react-dom client entry
       'react-dom/client': path.resolve(
-        __dirname,
+        import.meta.dirname,
         '../../node_modules/react-dom/client'
       )
     }
