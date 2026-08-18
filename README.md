@@ -18,6 +18,7 @@ The web app should be fairly stable. The desktop app also works well, though the
 - Node.js and `npm`
     - You'll also need `generate-license-file` installed globally through npm.
 - Rust toolchain (install via `rustup`)
+    - The `wasm32-unknown-unknown` target is also required.
     - You'll also need to install `cargo about` with the `cli` feature and `wasm-bindgen-cli`.
 - For Tauri (desktop):
   - Platform-specific native build tools:
