@@ -2,7 +2,10 @@
 
 CookyCardz is a recipe manager tool. It allows you to manage your recipes, organize them with tags, schedule them, and generate grocery lists. It is both a cloud-based web app and a desktop application with optional cloud syncing.
 
-## Quick summary
+## Status
+The web app should be fairly stable. The desktop app also works well, though the cloud syncing remains brittle and sometimes reorders and/or duplicates recipes, so that feature is still a work in progress.
+
+## Quick repo summary
 
 - CookyCardz uses Turborepo.
 - The Next.js web application is at: `apps/web`
@@ -23,7 +26,7 @@ CookyCardz is a recipe manager tool. It allows you to manage your recipes, organ
     - Windows: Visual Studio / Build Tools
   - (Optional) Tauri CLI — you can use the local CLI in devDependencies or install globally
 
-## Environment Variables
+## Environment variables
 You'll need to set the following environment variables for the web app (put `.env` file in `apps/web`):
 
 - `SUPABASE_URL` - URL of your supabase database. You can use the sql scripts in the `apps/web/src/db` folder to set up the tables and procedures.
