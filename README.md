@@ -18,7 +18,7 @@ CookyCardz is a recipe manager tool. It allows you to manage your recipes, organ
 - For Tauri (desktop):
   - Platform-specific native build tools:
     - macOS: Xcode command line tools
-    - Linux: GTK dev packages (varies by distro)
+    - Linux: GTK dev packages (varies by distro), as well as `libsecret-tools`.
     - Windows: Visual Studio / Build Tools
   - (Optional) Tauri CLI — you can use the local CLI in devDependencies or install globally
 
