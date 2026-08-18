@@ -13,6 +13,7 @@ CookyCardz is a recipe manager tool. It allows you to manage your recipes, organ
 ## Prerequisites
 
 - Node.js and `npm`
+    - You'll also need `generate-license-file` installed globally through npm.
 - Rust toolchain (install via `rustup`)
     - You'll also need to install `cargo about` with the `cli` feature and `wasm-bindgen-cli`.
 - For Tauri (desktop):
