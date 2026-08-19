@@ -37,7 +37,7 @@ You'll need to set the following environment variables for the web app (put `.en
 - `NEXT_PUBLIC_SITE_URL` - The URL of your website. This will be http://localhost:3000 in development.
 
 For the desktop app Rust backend you'll need the following (put `.env` file in `apps/desktop/src-tauri`):
-- `DATABASE_URL` - SQLx database connection URL for the sqlite database to use for compile-time query checking. You'll need to create an sqlite database somewhere, set this variable to `sqlite:/path/to/db`, and run the migrations on that database with the `sqlx` cli in order to compile the app. The reason behind this is that `sqlx` performs compile-time type-checking of SQL queries, so the app can't compile without a database to check against. Once the app runs once, you can set this variable to the actual database used by the app (in the app data directory) and delete the test database if you wish.
+- `DATABASE_URL` - SQLx database connection URL for the sqlite database to use for compile-time query checking. Set this to `sqlite:/path-to-repo/apps/desktop/src-tauri/compile-check.db`.
 - `API_URL` - URL of the API in the web app. For dev, this would be `http://localhost:3000/api`.
 
 ## Installing dependencies
