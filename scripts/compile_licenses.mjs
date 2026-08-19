@@ -11,11 +11,21 @@ execSync(
 );
 
 // 2. cargo about generate, append to file
-const cargoOutput = execSync(
-  'cargo about generate -m packages/groceryify/Cargo.toml --target wasm32-unknown-unknown packages/groceryify/about.hbs --features wasm',
-  { encoding: 'utf8' }
-);
-fs.appendFileSync('ThirdPartyNotices.txt', cargoOutput);
+const cargoOutputPath = 'ThirdPartyNotices.cargo.txt';
+try {
+  execSync(
+    `cargo about generate -m packages/groceryify/Cargo.toml --target wasm32-unknown-unknown packages/groceryify/about.hbs --features wasm -o ${cargoOutputPath}`,
+    { stdio: 'inherit' }
+  );
+  fs.appendFileSync(
+    'ThirdPartyNotices.txt',
+    fs.readFileSync(cargoOutputPath, 'utf8')
+  );
+} finally {
+  if (fs.existsSync(cargoOutputPath)) {
+    fs.unlinkSync(cargoOutputPath);
+  }
+}
 
 // 3. append wordnet license
 const out = 'ThirdPartyNotices.txt';
