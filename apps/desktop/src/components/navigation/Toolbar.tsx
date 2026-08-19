@@ -47,7 +47,7 @@ export default function Toolbar() {
   return (
     <div
       data-tauri-drag-region={platform() === 'macos'}
-      className={`sticky flex flex-row items-center justify-between z-10 ${
+      className={`sticky flex flex-row items-center justify-between z-10 px-2 ${
         platform() !== 'macos' ? 'bg-white dark:bg-[#202020] shadow-md p-1' : ''
       }`}
     >
