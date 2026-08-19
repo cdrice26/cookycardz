@@ -42,19 +42,7 @@ For the desktop app Rust backend you'll need the following (put `.env` file in `
 
 ## Installing dependencies
 
-From the repository root:
-
-- Using npm:
-  ```bash
-  npm install
-  ```
-
-- Or using pnpm (recommended for monorepos):
-  ```bash
-  pnpm install
-  ```
-
-This installs dependencies for all workspace packages.
+Run `npm install` from the repository root.
 
 ## Development
 ### Runing both apps (recommended)
