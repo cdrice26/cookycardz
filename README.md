@@ -19,7 +19,7 @@ The web app should be fairly stable. The desktop app also works well, though the
     - You'll also need `generate-license-file` installed globally through npm.
 - Rust toolchain (install via `rustup`)
     - The `wasm32-unknown-unknown` target is also required.
-    - You'll also need to install `cargo about` with the `cli` feature and `wasm-bindgen-cli`.
+    - You'll also need to install `cargo about` with the `cli` feature and `wasm-bindgen-cli`. On Windows, you will need to either install LLVM Clang or download prebuilt binaries for these.
 - For Tauri (desktop):
   - Platform-specific native build tools:
     - macOS: Xcode command line tools
