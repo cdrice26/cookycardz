@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "UPDATE recipes\r\n    SET last_updated = ?\r\n    WHERE id = ?\r\n    RETURNING id;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "ca3837432a6df9870ac27afba11da59bcf8faf63cd8f41883d722a291c75cf75"
+}

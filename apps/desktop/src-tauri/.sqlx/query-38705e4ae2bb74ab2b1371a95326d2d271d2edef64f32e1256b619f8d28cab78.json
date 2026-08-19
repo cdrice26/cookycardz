@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT username FROM cloud_ids\r\nWHERE username IS NOT NULL\r\nUNION\r\nSELECT username FROM schedule_cloud_ids\r\nWHERE username IS NOT NULL\r\nUNION\r\nSELECT username FROM tag_cloud_ids\r\nWHERE username IS NOT NULL;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "username",
+        "ordinal": 0,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "38705e4ae2bb74ab2b1371a95326d2d271d2edef64f32e1256b619f8d28cab78"
+}

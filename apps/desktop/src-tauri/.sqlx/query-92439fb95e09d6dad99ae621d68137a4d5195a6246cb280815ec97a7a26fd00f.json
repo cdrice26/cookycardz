@@ -1,0 +1,56 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT s.id, r.id AS recipe_id, r.title AS recipe_name, r.color AS recipe_color, s.date, s.repeat, s.repeat_end AS end_repeat\r\nFROM scheduled_recipes s\r\nINNER JOIN recipes r ON s.recipe_id = r.id\r\nWHERE (\r\n    repeat = 'none' AND date BETWEEN ? AND ?\r\n    OR repeat IN ('weekly', 'monthly date', 'monthly day') AND date <= ? AND COALESCE(repeat_end, ?) >= ?\r\n);\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "recipe_id",
+        "ordinal": 1,
+        "type_info": "Integer"
+      },
+      {
+        "name": "recipe_name",
+        "ordinal": 2,
+        "type_info": "Text"
+      },
+      {
+        "name": "recipe_color",
+        "ordinal": 3,
+        "type_info": "Text"
+      },
+      {
+        "name": "date",
+        "ordinal": 4,
+        "type_info": "Date"
+      },
+      {
+        "name": "repeat",
+        "ordinal": 5,
+        "type_info": "Text"
+      },
+      {
+        "name": "end_repeat",
+        "ordinal": 6,
+        "type_info": "Date"
+      }
+    ],
+    "parameters": {
+      "Right": 5
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "92439fb95e09d6dad99ae621d68137a4d5195a6246cb280815ec97a7a26fd00f"
+}

@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "DELETE FROM schedule_cloud_ids WHERE local_id = ? AND cloud_id = ? AND username = ?;\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "fe40299730b15faea6909d13d967d0599362b76e83761e74dcaf462ef26333ab"
+}

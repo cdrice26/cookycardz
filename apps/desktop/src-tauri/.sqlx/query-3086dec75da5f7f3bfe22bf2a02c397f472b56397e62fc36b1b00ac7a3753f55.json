@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT t.name, t.id FROM user_tags t\r\nINNER JOIN tag_cloud_ids ci\r\n    ON t.id = ci.local_id\r\nWHERE ci.username = ?;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "name",
+        "ordinal": 0,
+        "type_info": "Text"
+      },
+      {
+        "name": "id",
+        "ordinal": 1,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      true,
+      true
+    ]
+  },
+  "hash": "3086dec75da5f7f3bfe22bf2a02c397f472b56397e62fc36b1b00ac7a3753f55"
+}

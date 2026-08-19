@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "DELETE FROM schedule_cloud_ids WHERE local_id IN (SELECT id FROM scheduled_recipes WHERE recipe_id = ?);\r\nDELETE FROM scheduled_recipes WHERE recipe_id = ?;\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": []
+  },
+  "hash": "cdd8d0b572335d7377c1705b2a7589837673f415b0fe316429747795c7d0acba"
+}

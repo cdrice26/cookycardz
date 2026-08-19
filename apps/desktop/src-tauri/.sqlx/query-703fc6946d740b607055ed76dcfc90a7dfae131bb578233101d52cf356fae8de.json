@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO directions (recipe_id, content, sequence)\r\nVALUES (?, ?, ?)\r\nRETURNING id;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "703fc6946d740b607055ed76dcfc90a7dfae131bb578233101d52cf356fae8de"
+}

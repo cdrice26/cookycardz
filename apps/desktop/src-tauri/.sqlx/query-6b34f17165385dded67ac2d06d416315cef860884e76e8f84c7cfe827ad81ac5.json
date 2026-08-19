@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "UPDATE recipes\r\n    SET title = ?, yield = ?, minutes = ?, img_url = ?, color = ?, last_updated = CURRENT_TIMESTAMP\r\n    WHERE id = ?\r\n    RETURNING id;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 6
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "6b34f17165385dded67ac2d06d416315cef860884e76e8f84c7cfe827ad81ac5"
+}

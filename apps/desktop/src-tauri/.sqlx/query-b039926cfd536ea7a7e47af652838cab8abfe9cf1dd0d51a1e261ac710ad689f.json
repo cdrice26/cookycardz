@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "PRAGMA foreign_keys = OFF;\r\nDELETE FROM directions;\r\nDELETE FROM ingredients;\r\nDELETE FROM recipe_tags;\r\nDELETE FROM user_tags;\r\nDELETE FROM scheduled_recipes;\r\nDELETE FROM recipe_usage;\r\nDELETE FROM cloud_ids;\r\nDELETE FROM key_value;\r\nDELETE FROM last_synced_per_account;\r\nDELETE FROM tag_cloud_ids;\r\nDELETE FROM schedule_cloud_ids;\r\nDELETE FROM recipes;\r\nPRAGMA foreign_keys = ON;\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": []
+  },
+  "hash": "b039926cfd536ea7a7e47af652838cab8abfe9cf1dd0d51a1e261ac710ad689f"
+}

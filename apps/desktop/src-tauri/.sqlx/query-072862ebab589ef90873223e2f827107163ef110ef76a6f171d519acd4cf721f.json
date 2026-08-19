@@ -1,0 +1,32 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT cloud_recipe_id, username, recipe_id FROM cloud_ids\r\nWHERE recipe_id = $1 AND username = $2;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "cloud_recipe_id",
+        "ordinal": 0,
+        "type_info": "Text"
+      },
+      {
+        "name": "username",
+        "ordinal": 1,
+        "type_info": "Text"
+      },
+      {
+        "name": "recipe_id",
+        "ordinal": 2,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": [
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "072862ebab589ef90873223e2f827107163ef110ef76a6f171d519acd4cf721f"
+}

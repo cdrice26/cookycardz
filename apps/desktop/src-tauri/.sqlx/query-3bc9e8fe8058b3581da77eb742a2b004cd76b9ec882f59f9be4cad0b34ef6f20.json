@@ -1,0 +1,62 @@
+{
+  "db_name": "SQLite",
+  "query": "-- $1 = query\r\n-- $2 = tags\r\n-- $3 = page\r\n-- $4 = limit\r\n\r\nWITH RECURSIVE split(value, rest) AS (\r\n    SELECT '', $2 || ','\r\n    UNION ALL\r\n    SELECT\r\n        trim(substr(rest, 1, instr(rest, ',') - 1)),\r\n        substr(rest, instr(rest, ',') + 1)\r\n    FROM split\r\n    WHERE rest <> ''\r\n)\r\nSELECT\r\n    r.id,\r\n    r.title,\r\n    r.yield,\r\n    r.minutes,\r\n    r.img_url,\r\n    r.source,\r\n    r.color,\r\n    MAX(ru.last_viewed) AS last_viewed\r\nFROM\r\n    recipes r\r\nLEFT JOIN\r\n    recipe_usage ru ON r.id = ru.recipe_id\r\nWHERE ($1 IS NULL OR r.title LIKE '%' || $1 || '%')\r\n    AND (\r\n        $2 IS NULL OR $2 = '' OR\r\n        (\r\n            SELECT COUNT(DISTINCT ut.name)\r\n            FROM recipe_tags rt\r\n            JOIN user_tags ut ON ut.id = rt.tag_id\r\n            WHERE rt.recipe_id = r.id\r\n                AND ut.name IN (SELECT value FROM split WHERE value <> '')\r\n        ) = (\r\n            SELECT COUNT(DISTINCT value) FROM split where value <> ''\r\n        )\r\n    )\r\nGROUP BY\r\n    r.id, r.title, r.yield, r.minutes, r.img_url, r.source, r.color\r\nORDER BY\r\n    MAX(ru.last_viewed) DESC, r.title ASC\r\nLIMIT $4 OFFSET ($3 - 1) * $4;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "title",
+        "ordinal": 1,
+        "type_info": "Text"
+      },
+      {
+        "name": "yield",
+        "ordinal": 2,
+        "type_info": "Integer"
+      },
+      {
+        "name": "minutes",
+        "ordinal": 3,
+        "type_info": "Integer"
+      },
+      {
+        "name": "img_url",
+        "ordinal": 4,
+        "type_info": "Text"
+      },
+      {
+        "name": "source",
+        "ordinal": 5,
+        "type_info": "Text"
+      },
+      {
+        "name": "color",
+        "ordinal": 6,
+        "type_info": "Text"
+      },
+      {
+        "name": "last_viewed",
+        "ordinal": 7,
+        "type_info": "Datetime"
+      }
+    ],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "3bc9e8fe8058b3581da77eb742a2b004cd76b9ec882f59f9be4cad0b34ef6f20"
+}

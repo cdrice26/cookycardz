@@ -1,0 +1,44 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT s.id, s.recipe_id, s.date, s.repeat, s.repeat_end AS end_repeat\r\nFROM scheduled_recipes s\r\nLEFT JOIN schedule_cloud_ids cid ON cid.local_id = s.id\r\nWHERE cid.local_id IS NULL\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "recipe_id",
+        "ordinal": 1,
+        "type_info": "Integer"
+      },
+      {
+        "name": "date",
+        "ordinal": 2,
+        "type_info": "Date"
+      },
+      {
+        "name": "repeat",
+        "ordinal": 3,
+        "type_info": "Text"
+      },
+      {
+        "name": "end_repeat",
+        "ordinal": 4,
+        "type_info": "Date"
+      }
+    ],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "8ec0d5f5682a86d9c1450477cdc882f81ccbae82511172d0c46377487a706075"
+}

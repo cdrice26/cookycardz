@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import { copyFileSync, appendFileSync } from 'fs';
 
-execSync('cargo about generate about.hbs > ThirdPartyNotices.md', {
+execSync('cargo about generate about.hbs -o ThirdPartyNotices.md', {
   stdio: 'inherit'
 });
 appendFileSync(

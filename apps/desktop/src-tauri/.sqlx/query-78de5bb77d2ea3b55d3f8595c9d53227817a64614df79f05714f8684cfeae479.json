@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT d.id, d.content FROM directions d WHERE recipe_id = ?;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "content",
+        "ordinal": 1,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "78de5bb77d2ea3b55d3f8595c9d53227817a64614df79f05714f8684cfeae479"
+}

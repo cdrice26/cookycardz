@@ -1,0 +1,26 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT\r\n    ut.id,\r\n    ut.name\r\nFROM recipe_tags rt\r\nINNER JOIN user_tags ut ON ut.id = rt.tag_id\r\nWHERE rt.recipe_id = ?;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "name",
+        "ordinal": 1,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      true
+    ]
+  },
+  "hash": "6ae26ec8aa96d870bdf68200c48214f68ff3288a7fd0d0f560177e577c06628a"
+}

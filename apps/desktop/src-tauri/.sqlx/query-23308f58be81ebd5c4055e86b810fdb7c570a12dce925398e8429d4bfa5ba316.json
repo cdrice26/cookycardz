@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO schedule_cloud_ids (local_id, cloud_id, username) VALUES (?, ?, ?) RETURNING id;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "23308f58be81ebd5c4055e86b810fdb7c570a12dce925398e8429d4bfa5ba316"
+}

@@ -1,0 +1,44 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT id, recipe_id, date, repeat, repeat_end AS end_repeat\r\nFROM scheduled_recipes\r\nWHERE recipe_id = ?;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "recipe_id",
+        "ordinal": 1,
+        "type_info": "Integer"
+      },
+      {
+        "name": "date",
+        "ordinal": 2,
+        "type_info": "Date"
+      },
+      {
+        "name": "repeat",
+        "ordinal": 3,
+        "type_info": "Text"
+      },
+      {
+        "name": "end_repeat",
+        "ordinal": 4,
+        "type_info": "Date"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "95e495040fa96b4e1b9f781de1ff85a4330d464c3b26da777e807795f7489b08"
+}

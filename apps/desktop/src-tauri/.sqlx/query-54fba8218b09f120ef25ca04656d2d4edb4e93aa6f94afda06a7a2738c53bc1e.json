@@ -1,0 +1,38 @@
+{
+  "db_name": "SQLite",
+  "query": "WITH RECURSIVE\r\n\r\nmonthly_day_months(sr_id, month_start, repeat_end, target_dow, target_wom) AS (\r\n    SELECT\r\n        sr.id,\r\n        date(sr.date, 'start of month'),\r\n        sr.repeat_end,\r\n        CAST(strftime('%w', sr.date) AS INTEGER),\r\n        CAST((strftime('%d', sr.date) - 1) / 7 + 1 AS INTEGER)\r\n    FROM scheduled_recipes sr\r\n    WHERE sr.repeat = 'monthly day'\r\n\r\n    UNION ALL\r\n\r\n    SELECT\r\n        m.sr_id,\r\n        date(m.month_start, '+1 month'),\r\n        m.repeat_end,\r\n        m.target_dow,\r\n        m.target_wom\r\n    FROM monthly_day_months m\r\n    WHERE date(m.month_start, '+1 month') <= m.repeat_end\r\n),\r\n\r\nmonthly_day_dates AS (\r\n    SELECT\r\n        m.sr_id,\r\n        m.month_start,\r\n        date(\r\n            m.month_start,\r\n            '+' || (\r\n                (m.target_wom - 1) * 7\r\n                + (m.target_dow - CAST(strftime('%w', m.month_start) AS INTEGER) + 7) % 7\r\n            ) || ' days'\r\n        ) AS scheduled_date\r\n    FROM monthly_day_months m\r\n),\r\n\r\nrepeat_dates(sr_id, scheduled_date, repeat_end, repeat, step) AS (\r\n    SELECT\r\n        sr.id,\r\n        sr.date,\r\n        sr.repeat_end,\r\n        sr.repeat,\r\n        CASE sr.repeat\r\n            WHEN 'weekly'       THEN '+7 days'\r\n            WHEN 'monthly date' THEN '+1 month'\r\n        END AS step\r\n    FROM scheduled_recipes sr\r\n    WHERE sr.repeat IN ('weekly', 'monthly date')\r\n\r\n    UNION ALL\r\n\r\n    SELECT\r\n        rd.sr_id,\r\n        date(rd.scheduled_date, rd.step),\r\n        rd.repeat_end,\r\n        rd.repeat,\r\n        rd.step\r\n    FROM repeat_dates rd\r\n    WHERE date(rd.scheduled_date, rd.step) <= rd.repeat_end\r\n),\r\n\r\nall_scheduled_dates AS (\r\n    SELECT sr.id AS sr_id, sr.recipe_id, sr.date AS scheduled_date\r\n    FROM scheduled_recipes sr\r\n    WHERE sr.repeat = 'none'\r\n\r\n    UNION ALL\r\n\r\n    SELECT sr.id AS sr_id, sr.recipe_id, rd.scheduled_date AS scheduled_date\r\n    FROM repeat_dates rd\r\n    JOIN scheduled_recipes sr ON sr.id = rd.sr_id\r\n\r\n    UNION ALL\r\n\r\n    SELECT sr.id AS sr_id, sr.recipe_id, mdd.scheduled_date\r\n    FROM monthly_day_dates mdd\r\n    JOIN scheduled_recipes sr ON sr.id = mdd.sr_id\r\n    WHERE strftime('%Y-%m', mdd.scheduled_date) = strftime('%Y-%m', mdd.month_start)\r\n)\r\n\r\nSELECT\r\n    i.id,\r\n    i.amount,\r\n    i.unit,\r\n    i.name\r\nFROM ingredients i\r\nJOIN all_scheduled_dates asd ON i.recipe_id = asd.recipe_id\r\nWHERE asd.scheduled_date BETWEEN date(?) AND date(?);\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "amount",
+        "ordinal": 1,
+        "type_info": "Float"
+      },
+      {
+        "name": "unit",
+        "ordinal": 2,
+        "type_info": "Text"
+      },
+      {
+        "name": "name",
+        "ordinal": 3,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "54fba8218b09f120ef25ca04656d2d4edb4e93aa6f94afda06a7a2738c53bc1e"
+}

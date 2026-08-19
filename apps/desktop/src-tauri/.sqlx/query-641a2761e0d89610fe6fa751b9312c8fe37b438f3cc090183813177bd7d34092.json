@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO tag_cloud_ids (local_id, username) VALUES ($1, $2) ON CONFLICT DO NOTHING;\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": []
+  },
+  "hash": "641a2761e0d89610fe6fa751b9312c8fe37b438f3cc090183813177bd7d34092"
+}

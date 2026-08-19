@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO scheduled_recipes (recipe_id, date, repeat, repeat_end)\r\nVALUES (?, ?, ?, ?);\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": []
+  },
+  "hash": "de0da468a78a541ab7bcf2d2e367b47e5e370e06ae12b9e53bae0855ab0b66bb"
+}

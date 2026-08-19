@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "DELETE FROM ingredients WHERE recipe_id = ?;\r\nDELETE FROM recipe_tags WHERE recipe_id = ?;\r\nDELETE FROM directions WHERE recipe_id = ?;\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "4b220dde464568d0a459422fc7f6e6935cedb3604118c43c60777c9d871f0bd5"
+}

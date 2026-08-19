@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO recipe_usage (recipe_id, last_viewed)\r\n    VALUES (?, ?) RETURNING id;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "6c185e35958f19cd210fc1b5c85360730305e3f4d75725d66e943bba9c28b858"
+}

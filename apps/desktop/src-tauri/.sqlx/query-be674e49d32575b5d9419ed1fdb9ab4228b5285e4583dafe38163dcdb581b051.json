@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO cloud_ids (recipe_id, username, cloud_recipe_id) VALUES ($1, $2, $3);\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "be674e49d32575b5d9419ed1fdb9ab4228b5285e4583dafe38163dcdb581b051"
+}

@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT last_synced FROM last_synced_per_account WHERE username = ?;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "last_synced",
+        "ordinal": 0,
+        "type_info": "Datetime"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "bf3581ee9661b918bec36e237d00624ac8e17094bd8cfbaff8ece32af51abbb8"
+}

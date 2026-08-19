@@ -1,0 +1,74 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT\r\n    r.id,\r\n    r.title,\r\n    r.yield,\r\n    r.minutes,\r\n    r.img_url,\r\n    r.source,\r\n    r.color,\r\n    r.last_updated,\r\n    c.cloud_recipe_id,\r\n    CAST((\r\n        SELECT MAX(strftime('%Y-%m-%d %H:%M:%S', last_viewed))\r\n        FROM recipe_usage\r\n        WHERE recipe_id = r.id\r\n    ) AS TIMESTAMP) AS \"last_viewed: NaiveDateTime\"\r\nFROM recipes r\r\nLEFT JOIN (SELECT * FROM cloud_ids\r\n                WHERE username = $1) c\r\n    ON r.id = c.recipe_id\r\nWHERE r.last_updated > $2;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "title",
+        "ordinal": 1,
+        "type_info": "Text"
+      },
+      {
+        "name": "yield",
+        "ordinal": 2,
+        "type_info": "Integer"
+      },
+      {
+        "name": "minutes",
+        "ordinal": 3,
+        "type_info": "Integer"
+      },
+      {
+        "name": "img_url",
+        "ordinal": 4,
+        "type_info": "Text"
+      },
+      {
+        "name": "source",
+        "ordinal": 5,
+        "type_info": "Text"
+      },
+      {
+        "name": "color",
+        "ordinal": 6,
+        "type_info": "Text"
+      },
+      {
+        "name": "last_updated",
+        "ordinal": 7,
+        "type_info": "Datetime"
+      },
+      {
+        "name": "cloud_recipe_id",
+        "ordinal": 8,
+        "type_info": "Text"
+      },
+      {
+        "name": "last_viewed: NaiveDateTime",
+        "ordinal": 9,
+        "type_info": "Numeric"
+      }
+    ],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  "hash": "e989c8ae087d93fdabcfb48249b9da7ed27a19af814cfb418bbfb7fc081d239d"
+}

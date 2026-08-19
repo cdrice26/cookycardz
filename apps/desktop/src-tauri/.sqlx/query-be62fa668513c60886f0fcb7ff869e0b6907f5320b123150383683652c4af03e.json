@@ -1,0 +1,20 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO recipes (title, yield, minutes, img_url, color, last_updated, source)\r\n    VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?)\r\n    RETURNING id;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      }
+    ],
+    "parameters": {
+      "Right": 6
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "be62fa668513c60886f0fcb7ff869e0b6907f5320b123150383683652c4af03e"
+}

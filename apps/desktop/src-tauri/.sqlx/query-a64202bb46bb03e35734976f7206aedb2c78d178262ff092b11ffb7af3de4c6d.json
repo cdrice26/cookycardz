@@ -1,0 +1,56 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT\r\n    id,\r\n    title,\r\n    yield,\r\n    minutes,\r\n    img_url,\r\n    source,\r\n    color\r\nFROM recipes WHERE id = ?;\r\n",
+  "describe": {
+    "columns": [
+      {
+        "name": "id",
+        "ordinal": 0,
+        "type_info": "Integer"
+      },
+      {
+        "name": "title",
+        "ordinal": 1,
+        "type_info": "Text"
+      },
+      {
+        "name": "yield",
+        "ordinal": 2,
+        "type_info": "Integer"
+      },
+      {
+        "name": "minutes",
+        "ordinal": 3,
+        "type_info": "Integer"
+      },
+      {
+        "name": "img_url",
+        "ordinal": 4,
+        "type_info": "Text"
+      },
+      {
+        "name": "source",
+        "ordinal": 5,
+        "type_info": "Text"
+      },
+      {
+        "name": "color",
+        "ordinal": 6,
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false
+    ]
+  },
+  "hash": "a64202bb46bb03e35734976f7206aedb2c78d178262ff092b11ffb7af3de4c6d"
+}

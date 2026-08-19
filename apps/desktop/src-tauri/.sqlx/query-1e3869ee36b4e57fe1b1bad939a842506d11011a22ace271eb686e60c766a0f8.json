@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "DELETE FROM recipe_tags WHERE tag_id = (SELECT id FROM user_tags WHERE name = $1);\r\nDELETE FROM tag_cloud_ids WHERE local_id = (SELECT id FROM user_tags WHERE name = $1);\r\nDELETE FROM user_tags WHERE name = $1;\r\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "1e3869ee36b4e57fe1b1bad939a842506d11011a22ace271eb686e60c766a0f8"
+}
